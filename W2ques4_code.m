@@ -14,9 +14,9 @@ s = tf('s');
 P_motor = K/(s*((J*s+b)*(L*s+R)+K^2));
  
 Kp = 21;
-Ki = 500;
+Ki = 505;
 Kd = 0.15;
-N = 1;
+N = 1210;
 C = Kp+Ki/s+Kd*N/(1+N/s);
 
 sys_cl = feedback(C*P_motor,1);
@@ -28,8 +28,8 @@ grid
 % % t = 0:0.001:0.2;
 % % step(dist_cl)
 
-rs = stepinfo(sys_cl).RiseTime
-Ov = stepinfo(sys_cl).Overshoot
+RiseTime_seconds = stepinfo(sys_cl).SettlingTime
+Overshoot_percent = stepinfo(sys_cl).Overshoot
 
 sim("W2ques4_system.slx")
 open_system("W2ques4_system/Scope")
