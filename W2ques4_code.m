@@ -13,9 +13,9 @@ L = 2.75E-6;
 s = tf('s');
 P_motor = K/(s*((J*s+b)*(L*s+R)+K^2));
  
-Kp = 1;
-Ki = 1;
-Kd = 1;
+Kp = 21;
+Ki = 500;
+Kd = 0.15;
 N = 1;
 C = Kp+Ki/s+Kd*N/(1+N/s);
 
